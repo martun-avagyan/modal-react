@@ -1,9 +1,12 @@
 import "./Modal.css";
+import ModalProduct from "./ModalProduct";
 
-export default function Modal(props) {
+export default function Modal({ cartState }) {
   return (
     <div className="myModal">
-      <div>{console.log(props)}asdfewqefgdfdgds</div>
+      {cartState.map((el) => (
+        <ModalProduct el={el} />
+      ))}
     </div>
   );
 }

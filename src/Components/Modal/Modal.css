@@ -2,8 +2,8 @@
   position: relative;
   z-index: 1;
   margin: 0 auto;
-  margin-top: -50%;
-  background-color: rgb(29, 5, 51);
+  margin-top: 0 auto;
+  background-color: rgb(255, 255, 255);
   width: 75%;
   height: 75%;
   opacity: 85%;

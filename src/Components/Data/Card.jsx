@@ -4,7 +4,11 @@ import minus from "../../Assets/minus-solid.svg";
 
 import React, { useState } from "react";
 
-export default function Card({ element, addCartStateHandler }) {
+export default function Card({
+  element,
+  addCartStateHandler,
+  subtractCartStateHandler,
+}) {
   const [count, setCount] = useState(element.totalCount);
 
   const add = () => {
@@ -33,7 +37,15 @@ export default function Card({ element, addCartStateHandler }) {
           alt="Add"
         />
         <div className="counter">{count}</div>
-        <img src={minus} className="my-btn" onClick={subtract} alt="Subtract" />
+        <img
+          src={minus}
+          className="my-btn"
+          onClick={() => {
+            subtract();
+            subtractCartStateHandler({ ...element, totalCount: count - 1 });
+          }}
+          alt="Subtract"
+        />
       </div>
     </div>
   );
