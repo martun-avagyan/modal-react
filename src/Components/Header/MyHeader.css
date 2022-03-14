@@ -1,0 +1,30 @@
+.my-navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 3rem;
+}
+
+.cart-btn {
+  width: 4rem;
+}
+.imgLogo {
+  width: 3rem;
+  color: #ffffff;
+}
+
+body {
+  background-color: #800080;
+}
+
+.my-btn-navbar,
+.my-btn-navbar:active {
+  /* background-color: rgb(245, 133, 239); */
+}
+.my-btn-navbar:hover,
+.my-btn-navbar:focus {
+  background-color: rgb(180, 62, 174);
+}
+.counter {
+  font-size: 2rem;
+  font-weight: 600;
+}
