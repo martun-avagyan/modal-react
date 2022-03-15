@@ -4,9 +4,7 @@ import minus from "../../Assets/minus-solid.svg";
 import trash from "../../Assets/trash.svg";
 import "./ModalProduct.css";
 
-const ModalProduct = ({ el, addModalCount, subModalCount }) => {
-  console.log(el);
-
+const ModalProduct = ({ el, erase, addModalCount, subModalCount }) => {
   return (
     <div className="modal-content-wrapper">
       <div>{el.name}</div>
@@ -26,7 +24,12 @@ const ModalProduct = ({ el, addModalCount, subModalCount }) => {
           className="my-btn"
           alt="Subtract"
         />
-        <img src={trash} className="my-btn" alt="Delete" />
+        <img
+          src={trash}
+          onClick={() => erase(el.id)}
+          className="my-btn"
+          alt="Delete"
+        />
       </div>
     </div>
   );

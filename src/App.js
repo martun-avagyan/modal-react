@@ -68,6 +68,14 @@ function App() {
     );
   };
 
+  const erase = (id) => {
+    setCartState((prev) => {
+      return prev.filter((item) => {
+        return item.id !== id;
+      });
+    });
+  };
+
   return (
     <div className="app">
       <MyHeader toggleModal={toggleModal}></MyHeader>
@@ -76,7 +84,7 @@ function App() {
           addModalCount={addModalCount}
           subModalCount={subModalCount}
           cartState={cartState}
-          
+          erase={erase}
         />
       ) : null}
       <Data
