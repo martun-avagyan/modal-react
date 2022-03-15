@@ -27,12 +27,12 @@ function App() {
       setCartState((prev) => [...prev, el]);
     }
   };
+
   const subtractCartStateHandler = (el) => {
     if (cartState.find((item) => item.id === el.id)) {
       setCartState((prev) => {
         return prev.map((item) => {
-          if (item.id === el.id) {
-            console.log(item, el);
+          if (item.id === el.id && el.totalCount > 0) {
             return { ...item, totalCount: item.totalCount - 1 };
           }
           return item;
@@ -47,10 +47,38 @@ function App() {
       .then((data) => setData(data.coins));
   }, []);
 
+  const addModalCount = (id) => {
+    setCartState((prev) =>
+      prev.map((item) => {
+        if (item.id === id) {
+          return { ...item, totalCount: item.totalCount + 1 };
+        }
+        return item;
+      })
+    );
+  };
+
+  const subModalCount = (id) => {
+    setCartState((prev) =>
+      prev.map((item) => {
+        if (item.id === id && item.totalCount !== 0) {
+          return { ...item, totalCount: item.totalCount - 1 };
+        } else return item;
+      })
+    );
+  };
+
   return (
     <div className="app">
       <MyHeader toggleModal={toggleModal}></MyHeader>
-      {isModalOpen ? <Modal cartState={cartState} /> : null}
+      {isModalOpen ? (
+        <Modal
+          addModalCount={addModalCount}
+          subModalCount={subModalCount}
+          cartState={cartState}
+          
+        />
+      ) : null}
       <Data
         addCartStateHandler={addCartStateHandler}
         subtractCartStateHandler={subtractCartStateHandler}
